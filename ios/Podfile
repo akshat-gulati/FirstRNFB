@@ -17,7 +17,7 @@ end
 target 'FirstRNFB' do
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
-
+  $FirebaseSDKVersion = '11.8.0'
   config = use_native_modules!
 
   use_react_native!(
