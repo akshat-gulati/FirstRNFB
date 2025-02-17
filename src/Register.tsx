@@ -40,8 +40,8 @@ const Register = () => {
             <TextInput value={password} secureTextEntry autoCapitalize='none' onChangeText={setpassword} style={styles.input} placeholder='Enter your Password' />
           </View>
           <View style={styles.eachSection}>
-            <Text style={styles.heading}>Password</Text>
-            <TextInput value={confirmPassword} secureTextEntry autoCapitalize='none' onChangeText={setconfirmPassword} style={styles.input} placeholder='Enter your Password' />
+            <Text style={styles.heading}>Confirm Password</Text>
+            <TextInput value={confirmPassword} secureTextEntry autoCapitalize='none' onChangeText={setconfirmPassword} style={styles.input} placeholder='Enter your Confirm Password' />
           </View>
         </View>
         <TouchableOpacity onPress={handleRegister} style={styles.button}>
