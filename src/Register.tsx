@@ -24,8 +24,7 @@ const Register = ({navigation}) => {
 
     }
   }
-
-
+  
   return (
     <View style={styles.container}>
       <View style={{ width: "100%", flex: 1, justifyContent: 'center', marginBottom: 100 }}>
