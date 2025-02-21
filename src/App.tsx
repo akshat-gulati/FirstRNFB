@@ -5,13 +5,15 @@ import Register from './Register';
 import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import Nav from './Nav';
+import UserCRUD from './Components/UserCRUD';
 
 // const firebaseApp = getApp();
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Nav />
+      {/* <Nav /> */}
+      <UserCRUD />
       </SafeAreaView>
   )
 }
