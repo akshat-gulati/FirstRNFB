@@ -3,13 +3,15 @@ import React from 'react'
 import { getApp, initializeApp } from '@react-native-firebase/app';
 import Register from './Register';
 import Login from './Login';
+import ForgotPassword from './ForgotPassword';
+import Nav from './Nav';
 
-const firebaseApp = getApp();
+// const firebaseApp = getApp();
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Register/>
+      <Nav />
       </SafeAreaView>
   )
 }

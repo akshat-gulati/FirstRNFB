@@ -35,16 +35,37 @@ export const loginUser = async (email, password) => {
         let errorMessage
         switch (error.code) {
             case 'auth/wrong-password':
-                errorMessage = 'Wrong Password'
+                errorMessage = 'Wrong Password';
                 break;
             case 'auth/user-not-found':
-                errorMessage = 'User Not Found!'
+                errorMessage = 'User Not Found!';
                 break;
 
             default:
-                errorMessage = 'Unknown Error'
+                errorMessage = 'Unknown Error';
                 break;
         }
-        throw new Error(errorMessage)
+        throw new Error(errorMessage);
+    }
+}
+
+// ---------------------------------------------------------
+export const sendPasswordResetEmail = async (email) =>{
+    try{
+        await auth().sendPasswordResetEmail(email)
+    } catch(error){
+        let errorMessage;
+        switch (error.code) {
+            case 'auth/user-not-found':
+                errorMessage = 'User not found';
+                break;
+            case 'auth/invalid-email':
+                errorMessage = 'invalid email address';
+                break;
+            default:
+                errorMessage = 'An Unknown Error Occured';
+                break;
+        }
+        throw new Error(errorMessage);
     }
 }

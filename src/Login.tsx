@@ -1,33 +1,31 @@
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
 import { loginUser } from "./Services/auth";
-import { styles } from './SharedStyleSheet'
+import { styles } from './SharedStyleSheet';
+import { NavigationProp } from '@react-navigation/native';
 
-const Login = () => {
-    const [email, setemail] = useState<string>('')
-    const [password, setpassword] = useState<string>('')
+const Login = ({ navigation }: { navigation: NavigationProp<any> }) => {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
     const handleLogin = async () => {
         if (!email || !password) {
-            Alert.alert('Error', "please Enter you id and password ")
-            return
+            Alert.alert('Error', "Please enter your email and password.");
+            return;
         }
         try {
-            const { emailVerified } = await loginUser(email, password)
-            if(emailVerified) {
-                Alert.alert("Success", "logged-in")
-                setemail('')
-                setpassword('')
-            }
-            else{
-                Alert.alert("Error", "Email not verified")
-
+            const { emailVerified } = await loginUser(email, password);
+            if (emailVerified) {
+                Alert.alert("Success", "Logged in successfully.");
+                setEmail('');
+                setPassword('');
+            } else {
+                Alert.alert("Error", "Email not verified.");
             }
         } catch (error) {
-            Alert.alert("Error", "unknown error")
-
-
+            Alert.alert("Error", "An unknown error occurred.");
         }
-    }
+    };
 
     return (
         <View style={styles.container}>
@@ -36,20 +34,39 @@ const Login = () => {
                 <View style={styles.enterDetails}>
                     <View style={styles.eachSection}>
                         <Text style={styles.heading}>Username</Text>
-                        <TextInput keyboardType='email-address' value={email} onChangeText={setemail} autoCapitalize='none' style={styles.input} placeholder='Enter your username' />
+                        <TextInput
+                            keyboardType='email-address'
+                            value={email}
+                            onChangeText={setEmail}
+                            autoCapitalize='none'
+                            style={styles.input}
+                            placeholder='Enter your username'
+                        />
                     </View>
                     <View style={styles.eachSection}>
                         <Text style={styles.heading}>Password</Text>
-                        <TextInput value={password} secureTextEntry autoCapitalize='none' onChangeText={setpassword} style={styles.input} placeholder='Enter your Password' />
+                        <TextInput
+                            value={password}
+                            secureTextEntry
+                            autoCapitalize='none'
+                            onChangeText={setPassword}
+                            style={styles.input}
+                            placeholder='Enter your password'
+                        />
+                        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+                            <Text style={{ alignSelf: 'flex-end', marginTop: 10 }}>Forgot Password</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <TouchableOpacity onPress={handleLogin} style={styles.button}>
                     <Text>Submit</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.button}>
+                <Text>Create a New Account</Text>
+            </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
-export default Login
-
+export default Login;

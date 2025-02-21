@@ -1,9 +1,9 @@
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { registerUser } from "./Services/auth";
 import { styles } from './SharedStyleSheet'
 
-const Register = () => {
+const Register = ({navigation}) => {
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
@@ -48,6 +48,9 @@ const Register = () => {
           <Text>Submit</Text>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button}>
+                          <Text>Login</Text>
+                      </TouchableOpacity>
     </View>
   )
 }

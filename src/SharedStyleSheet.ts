@@ -6,16 +6,16 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         backgroundColor: 'cornsilk',
-        padding: 10
+        padding: 10,
     },
     title: {
         fontSize: 30,
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     enterDetails: {
         width: '100%',
         // backgroundColor:'green',
-        justifyContent: 'center'
+        justifyContent: 'center',
 
 
     },
@@ -23,24 +23,24 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         paddingHorizontal: 8,
-        paddingVertical: 10
+        paddingVertical: 10,
     },
     eachSection: {
-        marginVertical: 10
+        marginVertical: 10,
 
     },
     heading: {
         fontSize: 15,
         marginLeft: 7,
-        marginBottom: 5
+        marginBottom: 5,
     },
     button: {
         backgroundColor: 'red',
         borderWidth: 1,
         width: '100%',
         paddingVertical: 10,
-        alignItems: "center",
+        alignItems: 'center',
         marginTop: 20,
-        borderRadius: 10
-    }
+        borderRadius: 10,
+    },
 })
